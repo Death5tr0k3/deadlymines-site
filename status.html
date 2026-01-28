@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeadlyMines — Status</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Navigation -->
+    <div class="nav">
+      <div class="brand">
+        <!-- If you are using an image logo, replace the next line with:
+        <img src="logo.png" class="logo" alt="DeadlyMines logo">
+        -->
+        <img src="logo.png" class="logo" alt="DeadlyMines logo">
+        <div>DeadlyMines</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="staff.html">Staff</a>
+        <a href="status.html">Status</a>
+        <a href="ranks.html">Ranks</a>
+        <a href="sneakpeaks.html">Sneak Peaks</a>
+        <a href="leaderboards.html">Leaderboards</a>
+        <a data-discord href="#">Discord</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="hero">
+      <div class="h1">Server Status</div>
+      <div class="p">
+        Live status pulled from a public Minecraft status API.
+      </div>
+    </div>
+
+    <!-- Status Box -->
+    <div class="card">
+      <div id="statusBox" class="small">Loading status...</div>
+
+      <div class="small" style="margin-top:12px">
+        Server IP: <span class="mono" data-ip></span>
+        <button style="margin-left:10px" data-copyip>Copy</button>
+      </div>
+    </div>
+
+    <div class="footer">
+    </div>
+
+  </div>
+</body>
+</html>

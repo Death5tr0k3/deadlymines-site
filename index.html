@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeadlyMines</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Navigation -->
+    <div class="nav">
+      <div class="brand">
+        <img src="logo.png" class="logo" alt="DeadlyMines logo">
+        <div>DeadlyMines</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="staff.html">Staff</a>
+        <a href="status.html">Status</a>
+        <a href="ranks.html">Ranks</a>
+        <a href="sneakpeaks.html">Sneak Peaks</a>
+        <a href="leaderboards.html">Leaderboards</a>
+        <a data-discord href="#">Discord</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="h1">DeadlyMines</div>
+      <div class="p">
+        Welcome to DeadlyMines — a Minecraft Box server focused on fun gameplay,
+        unique features, and making people happy.
+      </div>
+
+      <div class="btns">
+        <button class="btn primary" data-copyip>Copy Server IP</button>
+        <a class="btn" data-discord href="#">Join Discord</a>
+      </div>
+
+      <div class="small" style="margin-top:12px">
+        Server IP: <span class="mono" data-ip></span>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="grid">
+      <div class="card half">
+        <b>About Us</b>
+        <div class="small" style="margin-top:8px">
+          DeadlyMines is a Minecraft Box server with custom items, mobs,
+          events, and giveaways designed to make people around the world
+          have fun!
+        </div>
+      </div>
+
+      <div class="card half">
+        <b>Server Status</b>
+        <div id="statusBox" class="small" style="margin-top:10px">
+          Loading status...
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © <span id="year"></span> DeadlyMines • Not affiliated with Mojang or Microsoft
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

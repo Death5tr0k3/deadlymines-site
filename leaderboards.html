@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeadlyMines — Leaderboards</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <script defer src="leaderboards-data.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Navigation -->
+    <div class="nav">
+      <div class="brand">
+        <!-- Replace with image logo if you want:
+        <img src="logo.png" class="logo" alt="DeadlyMines logo">
+        -->
+        <img src="logo.png" class="logo" alt="DeadlyMines logo">
+        <div>DeadlyMines</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="staff.html">Staff</a>
+        <a href="status.html">Status</a>
+        <a href="ranks.html">Ranks</a>
+        <a href="sneakpeaks.html">Sneak Peaks</a>
+        <a href="leaderboards.html">Leaderboards</a>
+        <a data-discord href="#">Discord</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="hero">
+      <div class="h1">Leaderboards</div>
+      <div class="p">
+        Top players on DeadlyMines (PvP & Box).
+      </div>
+      <div class="small" id="lastUpdated" style="margin-top:6px;">
+        Last updated: —
+      </div>
+    </div>
+
+    <!-- Boards -->
+    <div class="grid">
+
+      <div class="card half">
+        <b>Most Kills</b>
+        <div id="lbKills" class="small" style="margin-top:10px;">Loading…</div>
+      </div>
+
+      <div class="card half">
+        <b>Most Blocks Mined</b>
+        <div class="small" style="margin-top:6px;">(total)</div>
+        <div id="lbBlocks" class="small" style="margin-top:10px;">Loading…</div>
+      </div>
+
+      <div class="card half">
+        <b>Highest Playtime</b>
+        <div class="small" style="margin-top:6px;">(hours)</div>
+        <div id="lbPlaytime" class="small" style="margin-top:10px;">Loading…</div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      No paid ranks. Stats are updated manually.
+    </div>
+
+  </div>
+
+  <script>
+    function fmt(n) {
+      try { return new Intl.NumberFormat().format(n); }
+      catch { return n; }
+    }
+
+    function renderBoard(elId, rows, suffix = "") {
+      const el = document.getElementById(elId);
+      if (!el) return;
+
+      if (!rows || !rows.length) {
+        el.textContent = "No data yet.";
+        return;
+      }
+
+      el.innerHTML = rows
+        .map((r, i) => `${i + 1}. ${r.name} — ${fmt(r.value)}${suffix}`)
+        .join("<br>");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.DM_LEADERBOARDS_LAST_UPDATED) {
+        document.getElementById("lastUpdated").textContent =
+          "Last updated: " + window.DM_LEADERBOARDS_LAST_UPDATED;
+      }
+
+      const d = window.DM_LEADERBOARDS;
+      if (!d) return;
+
+      renderBoard("lbKills", d.mostKills);
+      renderBoard("lbBlocks", d.mostBlocksMined);
+      renderBoard("lbPlaytime", d.highestPlaytimeHours, "h");
+    });
+  </script>
+</body>
+</html>
