@@ -1,6 +1,6 @@
 // EDIT THESE TWO LINES:
 const SERVER_IP = "deadlymines.minehut.gg";            // <- put your server IP here
-const DISCORD_URL = "https://discord.gg/b3WKAgyZ"; // <- put your discord invite link here
+const DISCORD_URL = "https://discord.gg/6ajRgHVK"; // <- put your discord invite link here
 
 function setNavLinks() {
   const discordBtns = document.querySelectorAll("[data-discord]");
@@ -78,4 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyBtns = document.querySelectorAll("[data-copyip]");
   copyBtns.forEach(btn => btn.addEventListener("click", copyIP));
 });
+
 
